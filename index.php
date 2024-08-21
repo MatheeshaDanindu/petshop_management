@@ -16,10 +16,20 @@ $items = $stmt->fetchAll();
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Pet Shop Management</a>
+            
+            <!-- logo -->
+            <a class="navbar-brand" href="#">
+                <img src="Pet_Shop_Logo.png" alt="Pet Shop Logo" width="210" height="90" class="d-inline-block align-text-top">
+            </a>
+            <a class="navbar-brand" href="#" style="font-size: 24px; font-family: 'Arial', sans-serif;">Pet Shop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- Search Bar -->
+            <form class="d-flex ms-auto" method="GET" action="search.php">
+                    <input class="form-control me-2" type="search" placeholder="Search items" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
