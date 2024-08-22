@@ -42,6 +42,25 @@ $items = $pdo->query('SELECT * FROM inventory')->fetchAll(PDO::FETCH_ASSOC);
 
 </head>
 <body>
+    <!-- Navbar with Logo -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="Pet_Shop_Logo.png" alt="Pet Shop Logo" width="220" height="90" class="d-inline-block align-text-top">
+                Pet Shop
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <form class="d-flex ms-auto" method="GET" action="search.php">
+                    <input class="form-control me-2" type="search" placeholder="Search items" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>    
     <div class="d-flex">
         <?php include 'dashboard.php'; ?>
         <div class="container-fluid mt-3">
