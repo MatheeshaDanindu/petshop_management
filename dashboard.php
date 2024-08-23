@@ -10,7 +10,10 @@
 <body>
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 250px; height: 100vh;">
         <a href="index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <span class="fs-4">Pet Shop</span>
+            <span class="fs-4">
+                <img src="Pet_Shop_Logo.png" alt="Pet Shop Logo" width="220" height="90" class="d-inline-block align-text-top">
+            
+            </span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
