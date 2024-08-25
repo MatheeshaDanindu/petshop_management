@@ -1,6 +1,6 @@
 <?php
-require 'auth.php';
-require 'config.php';
+require '../config.php';
+require '../auth.php';
 
 $id = $_GET['id'];
 
@@ -11,26 +11,6 @@ $item = $stmt->fetch();
 
 // Fetch all categories for the dropdown
 $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $quantity = $_POST['quantity'];
-    $price = $_POST['price'];
-    $category_id = $_POST['category_id'];
-
-    // Fetch the category name based on the selected category ID
-    $stmt = $pdo->prepare("SELECT name FROM categories WHERE id = ?");
-    $stmt->execute([$category_id]);
-    $category_name = $stmt->fetchColumn();
-
-    // Update the inventory item
-    $stmt = $pdo->prepare("UPDATE inventory SET name = ?, description = ?, quantity = ?, price = ?, category = ? WHERE id = ?");
-    $stmt->execute([$name, $description, $quantity, $price, $category_name, $id]);
-
-    header('Location: inventory.php');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php include 'dashboard.php'; ?>
         <div class="container-fluid mt-3">
             <h2 class="text-center">Edit Inventory Item</h2>
-            <form method="POST" action="edit_item.php?id=<?= $item['id'] ?>">
+            <form method="POST" action="../backend/edit_item.php">
+                <input type="hidden" name="id" value="<?= $item['id'] ?>">
                 <div class="mb-3">
                     <label for="name" class="form-label">Item Name</label>
                     <input type="text" class="form-control" id="name" name="name" value="<?= htmlspecialchars($item['name']) ?>" required>
