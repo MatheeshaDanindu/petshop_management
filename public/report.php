@@ -1,10 +1,5 @@
 <?php
-require 'auth.php';
-require 'config.php';
-
-$total_items = $pdo->query("SELECT COUNT(*) FROM items")->fetchColumn();
-$total_quantity = $pdo->query("SELECT SUM(quantity) FROM items")->fetchColumn();
-$total_value = $pdo->query("SELECT SUM(quantity * price) FROM items")->fetchColumn();
+require '../backend/report.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +25,9 @@ $total_value = $pdo->query("SELECT SUM(quantity * price) FROM items")->fetchColu
                 </thead>
                 <tbody>
                     <tr>
-                        <td><?= $total_items ?></td>
-                        <td><?= $total_quantity ?></td>
-                        <td>$<?= number_format($total_value, 2) ?></td>
+                        <td><?= $report_data['total_items'] ?></td>
+                        <td><?= $report_data['total_quantity'] ?></td>
+                        <td>$<?= $report_data['total_value'] ?></td>
                     </tr>
                 </tbody>
             </table>
