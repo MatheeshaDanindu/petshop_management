@@ -9,35 +9,9 @@ require '../backend/inventory.php'; // Include the backend logic
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory - Pet Shop Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!--<style>
-        .d-flex {
-            display: flex;
-        }
-
-        .flex-shrink-0 {
-            flex-shrink: 0;
-        }
-
-        .container-fluid {
-            margin-left: 250px; /* Adjust according to sidebar width */
-            padding: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .container-fluid {
-                margin-left: 0;
-                padding: 10px;
-            }
-
-            .flex-shrink-0 {
-                width: 100%;
-                height: auto;
-            }
-        }
-    </style>-->
+   
 </head>
 <body>
-    <!-- Navbar with Logo -->
     
     
     
@@ -52,10 +26,10 @@ require '../backend/inventory.php'; // Include the backend logic
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <form class="d-flex ms-auto" method="GET" action="search.php">
-                        <input class="form-control me-2" type="search" placeholder="Search items" aria-label="Search" name="query">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                        <form class="d-flex ms-auto" method="GET" action="">
+                            <input class="form-control me-2" type="search" placeholder="Search items" aria-label="Search" name="query" value="<?= htmlspecialchars($searchQuery) ?>">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                 </div>
             </div>
             </nav>
@@ -69,7 +43,7 @@ require '../backend/inventory.php'; // Include the backend logic
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Category</th>
-                        <th>Actions</th>
+                        <th>Created at</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,6 +55,7 @@ require '../backend/inventory.php'; // Include the backend logic
                             <td><?= htmlspecialchars($item['quantity']) ?></td>
                             <td><?= htmlspecialchars($item['price']) ?></td>
                             <td><?= htmlspecialchars($item['category']) ?></td>
+                            <td><?= htmlspecialchars($item['created_at']) ?></td>
                             <td>
                                 <a href="edit_item.php?id=<?= $item['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
                                 <a href="../delete_item.php?id=<?= $item['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
