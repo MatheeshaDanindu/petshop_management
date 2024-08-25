@@ -2,7 +2,20 @@
 require '../auth.php';
 require '../config.php';
 
-// Use prepared statements to fetch inventory data with category names
-$stmt = $pdo->prepare('SELECT i.*, c.name AS category FROM inventory i LEFT JOIN categories c ON i.category = c.name');
-$stmt->execute();
+// Check if a search query is provided
+$searchQuery = isset($_GET['query']) ? $_GET['query'] : '';
+
+// Modify the SQL query to include the search functionality
+$sql = 'SELECT i.*, c.name AS category FROM inventory i LEFT JOIN categories c ON i.category = c.name';
+$params = [];
+
+if (!empty($searchQuery)) {
+    $sql = "SELECT * FROM inventory WHERE CONCAT(name, ' ', description, ' ', category) LIKE :query;";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['query' => '%' . $searchQuery . '%']);
+} else {
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+}
+
 $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
