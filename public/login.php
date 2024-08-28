@@ -9,57 +9,8 @@ require '../backend/login.php';  // Include the backend logic
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Pet Shop Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-image: url('Images/9007406.png'); /* Ensure this path is correct */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh; /* Full viewport height */
-            margin: 0;
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-        }
-
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-            padding: 20px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px; /* Adjust as needed */
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
-            text-align: center; /* Centering text inside the card */
-        }
-
-        .form-check {
-            display: flex;
-            justify-content: center; /* Center the checkbox and label */
-            align-items: center; /* Align vertically */
-        }
-
-        .form-check-label {
-            margin-left: 10px; /* Space between the checkbox and label */
-        }
-
-        .btn-light-blue {
-            background-color: transparent;
-            color: #007bff; /* Light blue color */
-            border-color: #007bff;
-        }
-
-        .btn-light-blue:hover {
-            background-color: rgba(0, 123, 255, 0.1);
-            color: #0056b3; /* Darker blue color on hover */
-        }
-    </style>
+    <link rel="stylesheet" href="css/login.css">
+   
 </head>
 <body>
     <div class="container">
