@@ -1,33 +1,55 @@
 <?php
 require '../config.php';
+require '../auth.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Retrieve form data
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
 
-    // Validate inputs
-    if (empty($username) || empty($password)) {
-        die('Please fill in all fields.');
+    // Validate passwords
+    if ($password !== $confirm_password) {
+        header('Location: ../public/register.php?error=Passwords do not match');
+        exit;
     }
 
-    // Check if the username already exists
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = ?");
-    $stmt->execute([$username]);
-    $userExists = $stmt->fetchColumn();
-
-    if ($userExists) {
-        die('Username already taken. Please choose another.');
+    // Validate phone number length
+    if (strlen($phone) !== 10 || !ctype_digit($phone)) {
+        header('Location: ../public/register.php?error=Phone number must be exactly 10 digits');
+        exit;
     }
 
     // Hash the password
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert the new user into the database
-    $stmt = $pdo->prepare("INSERT INTO users (username, password_hash) VALUES (?, ?)");
-    $stmt->execute([$username, $password_hash]);
+    try {
+        // Check if the user already exists
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = ? OR email = ?");
+        $stmt->execute([$username, $email]);
+        $userExists = $stmt->fetchColumn();
 
-    // Redirect to login page
-    header('Location: login.php');
-    exit();
+        if ($userExists) {
+            header('Location: ../public/register.php?error=User with this username or email already exists');
+            exit;
+        }
+
+        // Prepare the SQL statement for insertion
+        $stmt = $pdo->prepare("INSERT INTO users (username, email, phone_number, password_hash) VALUES (?, ?, ?, ?)");
+
+        // Execute the statement
+        if ($stmt->execute([$username, $email, $phone, $password_hash])) {
+            header('Location: ../public/register.php?success=User successfully added');
+        } else {
+            header('Location: ../public/register.php?error=Failed to add user');
+        }
+    } catch (PDOException $e) {
+        // Log the error
+        error_log("Error adding user: " . $e->getMessage());
+        header('Location: ../public/register.php?error=An error occurred. Please try again later.');
+    }
 }
 ?>

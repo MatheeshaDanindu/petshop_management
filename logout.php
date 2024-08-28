@@ -1,16 +1,18 @@
 <?php
-session_start();
+session_start(); // Start the session
 
-// Clear all session variables
-$_SESSION = [];
-
-// Regenerate session ID to prevent fixation attacks
-session_regenerate_id(true);
+// Unset all session variables
+session_unset();
 
 // Destroy the session
 session_destroy();
 
-// Redirect to login page
+// Optionally, clear the "Remember Me" cookie if it exists
+if (isset($_COOKIE['remember_me_token'])) {
+    setcookie('remember_me_token', '', time() - 3600, '/'); // Expire the cookie
+}
+
+// Redirect to the login page
 header('Location: public/login.php');
 exit();
 ?>
