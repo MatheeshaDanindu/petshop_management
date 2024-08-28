@@ -3,7 +3,7 @@
 $host = getenv('DB_HOST') ?: '127.0.0.1';
 $db   = getenv('DB_NAME') ?: 'petshop_db';  // Database name
 $user = getenv('DB_USER') ?: 'root';        // XAMPP default username
-$pass = getenv('DB_PASS') ?: '';            // XAMPP default password is empty
+$pass = getenv('DB_PASS') ?: 'Sac@17085';            // XAMPP default password is empty
 
 // Set DSN (Data Source Name)
 $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";

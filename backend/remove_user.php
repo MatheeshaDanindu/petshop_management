@@ -27,5 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         error_log("Error removing user: " . $e->getMessage());
         header('Location: ../public/remove_user.php?error=An error occurred. Please try again later.');
     }
+} else {
+    // Fetch all users from the database
+    try {
+        $stmt = $pdo->query("SELECT username, email, phone_number FROM users");
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        error_log("Error fetching users: " . $e->getMessage());
+        $users = [];
+    }
+
+    // Include the frontend view
+    include '../public/remove_user_view.php';
 }
 ?>
