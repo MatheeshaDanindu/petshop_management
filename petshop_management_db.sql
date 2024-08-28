@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2024 at 09:24 PM
+-- Generation Time: Aug 28, 2024 at 06:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -37,11 +37,11 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Dog Food'),
-(2, 'Cat Toys'),
-(3, 'Aquarium Supplies'),
-(4, 'Bird Cages'),
-(5, 'Reptile Heaters');
+(1, 'Dog'),
+(2, 'Cat'),
+(3, 'Rabbit'),
+(4, 'Fish'),
+(5, 'Birds');
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE `inventory` (
   `quantity` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `category` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -64,12 +64,15 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id`, `name`, `description`, `quantity`, `price`, `category`, `created_at`) VALUES
-(1, 'Dog Food', 'High-quality dog food', 40, 20.00, 'Reptile Heaters', '2024-08-19 12:46:47'),
-(2, 'Cat Toy', 'Interactive cat toy', 90, 5.98, 'Bird Cages', '2024-08-19 12:46:47'),
-(3, 'Aquarium', 'Freshwater fish tank', 20, 75.00, 'Cat Toys', '2024-08-19 12:46:47'),
-(18, 'lasidu', 'bull', 4, 34.00, 'Dog Food', '2024-08-25 10:22:29'),
-(20, 'erg', 'rvwr', 435, 354.00, 'Bird Cages', '2024-08-25 11:04:57'),
-(21, 'arve', 'vav', 234, 23.00, 'Aquarium Supplies', '2024-08-25 11:35:50');
+(9, 'Bulldog', 'Well Behaved Dog', 3, 100000.00, 'Dog', '2024-08-26 17:10:38'),
+(10, 'Beagle', 'Small to medium-sized dogs known for their keen sense of smell and friendly nature. Beagles are energetic and great with families and children.', 5, 50000.00, 'Dog', '2024-08-26 17:12:34'),
+(11, 'Shih Tzu', 'Small toy dogs with a long, flowing coat and a friendly personality. They are affectionate and good for apartment living.', 1, 20000.00, 'Dog', '2024-08-26 17:13:26'),
+(12, 'Persian', 'Known for their long, luxurious fur and flat faces. Persians are calm, affectionate, and enjoy a quiet environment. They require regular grooming.', 1, 5000.00, 'Cat', '2024-08-26 17:14:15'),
+(13, 'British Shorthair', 'Stocky, round-faced cats with a dense, plush coat. They are calm, easygoing, and make excellent companions for families and individuals alike.\r\n', 6, 30000.00, 'Cat', '2024-08-26 17:14:51'),
+(14, 'Budgerigar', 'Small, colorful parrots known for their playful and social nature. Budgies are easy to care for and can mimic human speech and sounds.', 4, 20000.00, 'Birds', '2024-08-26 17:16:01'),
+(15, 'Cockatiel', 'Medium-sized parrots with a distinctive crest on their head. They are affectionate, enjoy interaction, and can learn to mimic sounds and speech.', 8, 8000.00, 'Birds', '2024-08-26 17:16:47'),
+(16, 'Canary', 'Small, songbirds known for their bright colors and melodious singing. Canaries are low-maintenance and prefer to live in pairs or small groups.', 2, 9000.00, 'Birds', '2024-08-26 17:17:23'),
+(17, 'Goldfish', 'Classic freshwater fish with a variety of colors and fin shapes. Goldfish are relatively easy to care for but require a well-filtered tank due to their waste production.', 70, 800.00, 'Fish', '2024-08-26 17:18:19');
 
 -- --------------------------------------------------------
 
@@ -81,16 +84,17 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
-  `role` enum('admin','user') DEFAULT 'user',
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `email` varchar(100) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password_hash`, `role`, `created_at`) VALUES
-(1001, 'admin', '$2y$10$6/SmQucl/XeNG5Xjg1HBoeNZawAqDuEwlDNEb3hRNX7MwPrN050o6', 'admin', '2024-08-19 10:19:41');
+INSERT INTO `users` (`id`, `username`, `password_hash`, `email`, `phone_number`, `created_at`) VALUES
+(6, 'admin', '$2y$10$nm1t9mM.XqGFKlgxVBBjHOp2pp8Pi90tUHQTg6e8uy.9i8axGVSH6', 'admin@gmail.com', '1234567890', '2024-08-26 04:18:07');
 
 --
 -- Indexes for dumped tables
@@ -128,13 +132,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

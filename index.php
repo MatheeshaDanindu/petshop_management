@@ -20,55 +20,8 @@ $items = $stmt->fetchAll();
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
-    <style>
-        h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #343a40; /* Dark Gray */
-            text-align: center;
-            margin-top: 20px; 
-        }
-        .card {
-            border-radius: 25px;
-            color: white; 
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-inventory {
-            height: 200px;
-            background-color: #007bff; /* Blue */
-        }
-        .card-add-item {
-            height: 200px;
-            background-color: #28a745; /* Green */
-        }
-        .card-reports {
-            height: 200px;
-            background-color: #17a2b8; /* Teal */
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        .card-text {
-            color: black;
-            font-size: 1rem;
-        }
-        .card-icon {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="public/css/styles.css">
+    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -85,7 +38,7 @@ $items = $stmt->fetchAll();
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                        <a class="nav-link active" aria-current="page" href="public/register.php">Register</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
@@ -96,7 +49,7 @@ $items = $stmt->fetchAll();
     </nav>
 
     <div class="container mt-4">
-        <h1 class="text-center">Welcome to Pet Shop Management System</h1>
+        <h1 class="text-center">Welcome to PAWSY</h1>
         <div class="row mt-5">
             <!-- Inventory Items -->
             <div class="col-md-4 mb-4">
