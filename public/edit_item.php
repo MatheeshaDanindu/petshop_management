@@ -38,11 +38,11 @@ $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
                 </div>
                 <div class="mb-3">
                     <label for="quantity" class="form-label">Quantity</label>
-                    <input type="number" class="form-control" id="quantity" name="quantity" value="<?= htmlspecialchars($item['quantity']) ?>" required>
+                    <input type="number" class="form-control" id="quantity" name="quantity" value="<?= htmlspecialchars($item['quantity']) ?>" min="1" required>
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" step="0.01" class="form-control" id="price" name="price" value="<?= htmlspecialchars($item['price']) ?>" required>
+                    <input type="number" step="0.01" class="form-control" id="price" name="price" value="<?= htmlspecialchars($item['price']) ?>" min="0.01" required>
                 </div>
                 <div class="mb-3">
                     <label for="category_id" class="form-label">Category</label>

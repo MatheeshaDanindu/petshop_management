@@ -105,6 +105,10 @@ try {
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <button type="submit" class="btn btn-primary">Add User</button>
+                    <a href="../index.php" class="btn btn-secondary btn-back">
+                        <i class="bi bi-arrow-left"></i> Back to Home
+                    </a>
             </div>
         </div>
     </div>

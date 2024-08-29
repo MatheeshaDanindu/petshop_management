@@ -1,0 +1,225 @@
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #343a40; /* Dark Gray */
+    text-align: center;
+    margin-top: 20px; 
+}
+.card {
+    border-radius: 25px;
+    color: rgb(255, 255, 255); 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-inventory {
+    height: 200px;
+    background-color: #007bff; /* Blue */
+}
+.card-add-item {
+    height: 200px;
+    background-color: #28a745; /* Green */
+}
+.card-reports {
+    height: 200px;
+    background-color: #17a2b8; /* Teal */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.card-text {
+    color: black;
+    font-size: 1rem;
+}
+.card-icon {
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 270px;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    background-color: #DF8F88; /* Dark Gray */
+    padding-top: 20px;
+    transition: width 0.3s;
+    /* overflow: hidden; */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+.sidebar-content {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    position: relative;
+}
+.sidebar img {
+    width: 176px;
+    height: 72px;
+    border-radius: 15px; /* Beveled corners */
+    transition: opacity 0.3s;
+}
+.toggle-btn {
+    background-color: white; /* White background for the button */
+    color: #343a40; /* Dark Gray (sidebar color) for the arrow */
+    border: none;
+    padding: 10px; /* Adjust padding for button size */
+    border-radius: 70%; /* Round shape */
+    cursor: pointer;
+    position: absolute; /* Positioned absolutely within the sidebar */
+    top: 15px; /* Adjust top position */
+    right: 15px; /* Position outside the sidebar */
+    transition: transform 0.3s, right 0.3s;
+    font-size: 1rem; /* Larger arrowhead */
+    z-index: 100; /* Ensure the button is above other content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sidebar.collapsed .toggle-btn {
+    transform: rotate(180deg); /* Rotate 180 degrees when collapsed */
+    right: 10px; /* Move the button inside the sidebar when collapsed */
+}
+.sidebar.collapsed {
+    width: 55px;
+}
+.sidebar.collapsed img {
+    opacity: 0; /* Hide logo when collapsed */
+}
+.sidebar.collapsed ul {
+    display: flex; /* Align items horizontally */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s;
+}
+.sidebar ul li {
+    padding: 15px 5px; /* Adjust padding for collapsed state */
+    display: flex;
+    align-items: center;
+}
+.sidebar ul li a {
+    color: rgb(0, 0, 0);
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+}
+.sidebar ul li a i {
+    margin-right: 15px; /* Space between icon and text */
+    font-size: 1.5rem; /* Adjust icon size */
+}
+.sidebar ul li span {
+    display: inline; /* Ensure text is visible in expanded state */
+}
+.sidebar.collapsed ul li span {
+    display: none; /* Hide text in collapsed state */
+}
+.sidebar ul li a:hover {
+    background-color: #007bff; /* Blue */
+    color: white;
+    border-radius: 3px; /* Optional: Add rounded corners */
+}
+.main-content {
+    margin-left: 270px;
+    transition: margin-left 0.3s;
+}
+.sidebar.collapsed + .main-content {
+    margin-left: 55px;
+}
+.dropdown-menu {
+    background-color: white; /* White background */
+    border: 1px solid black; /* Black border */
+    padding: 0;
+    width: 100%; /* Make dropdown menu width same as sidebar */
+    box-sizing: border-box;
+}
+.dropdown-menu a {
+    color: black; /* Black text color */
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+}
+.dropdown-menu a:hover {
+    background-color: #f1f1f1; /* Light gray background on hover */
+}
+.sidebar ul li.dropdown {
+    position: relative;
+}
+.sidebar ul li.dropdown .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 200; /* Ensure it appears above other content */
+}
+.sidebar ul li.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown menu on hover */
+}
+.dropdown-menu.hide {
+    display: none;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #DF8F88;
+    /* position: fixed; */
+    transition: width 0.3s;
+}
+.sidebar.collapsed {
+    width: 80px;
+}
+.sidebar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+/* .sidebar img {
+    max-width: 50px;
+    max-height: 50px;
+} */
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+}
+.nav-link i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+.nav-link span {
+    flex-grow: 1;
+}
+.dropdown-menu {
+    position: static;
+    float: none;
+}
+.dropdown-toggle::after {
+    display: none;
+}
+.sidebar.collapsed .nav-link span,
+.sidebar.collapsed .dropdown-toggle span {
+    display: none;
+}
+.sidebar.collapsed .dropdown-menu {
+    display: none;
+}

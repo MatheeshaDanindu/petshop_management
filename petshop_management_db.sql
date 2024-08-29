@@ -1,146 +1,98 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Aug 28, 2024 at 06:16 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               8.0.34 - MySQL Community Server - GPL
+-- Server OS:                    Win64
+-- HeidiSQL Version:             12.8.0.6908
+-- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Database: `petshop_db`
---
 
--- --------------------------------------------------------
+-- Dumping database structure for petshop_db
+CREATE DATABASE IF NOT EXISTS `petshop_db` /*!40100 DEFAULT CHARACTER SET utf8mb4  */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `petshop_db`;
 
---
--- Table structure for table `categories`
---
+-- Dumping structure for table petshop_db.categories
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 ;
 
-CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `categories`
---
-
+-- Dumping data for table petshop_db.categories: ~5 rows (approximately)
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Dog'),
-(2, 'Cat'),
-(3, 'Rabbit'),
-(4, 'Fish'),
-(5, 'Birds');
+	(1, 'Dog'),
+	(2, 'Cat'),
+	(3, 'Rabbit'),
+	(4, 'Fish'),
+	(5, 'Birds');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `inventory`
---
-
-CREATE TABLE `inventory` (
-  `id` int(11) NOT NULL,
+-- Dumping structure for table petshop_db.inventory
+CREATE TABLE IF NOT EXISTS `inventory` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
+  `description` text,
+  `quantity` int NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `category` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 ;
 
---
--- Dumping data for table `inventory`
---
-
+-- Dumping data for table petshop_db.inventory: ~10 rows (approximately)
 INSERT INTO `inventory` (`id`, `name`, `description`, `quantity`, `price`, `category`, `created_at`) VALUES
-(9, 'Bulldog', 'Well Behaved Dog', 3, 100000.00, 'Dog', '2024-08-26 17:10:38'),
-(10, 'Beagle', 'Small to medium-sized dogs known for their keen sense of smell and friendly nature. Beagles are energetic and great with families and children.', 5, 50000.00, 'Dog', '2024-08-26 17:12:34'),
-(11, 'Shih Tzu', 'Small toy dogs with a long, flowing coat and a friendly personality. They are affectionate and good for apartment living.', 1, 20000.00, 'Dog', '2024-08-26 17:13:26'),
-(12, 'Persian', 'Known for their long, luxurious fur and flat faces. Persians are calm, affectionate, and enjoy a quiet environment. They require regular grooming.', 1, 5000.00, 'Cat', '2024-08-26 17:14:15'),
-(13, 'British Shorthair', 'Stocky, round-faced cats with a dense, plush coat. They are calm, easygoing, and make excellent companions for families and individuals alike.\r\n', 6, 30000.00, 'Cat', '2024-08-26 17:14:51'),
-(14, 'Budgerigar', 'Small, colorful parrots known for their playful and social nature. Budgies are easy to care for and can mimic human speech and sounds.', 4, 20000.00, 'Birds', '2024-08-26 17:16:01'),
-(15, 'Cockatiel', 'Medium-sized parrots with a distinctive crest on their head. They are affectionate, enjoy interaction, and can learn to mimic sounds and speech.', 8, 8000.00, 'Birds', '2024-08-26 17:16:47'),
-(16, 'Canary', 'Small, songbirds known for their bright colors and melodious singing. Canaries are low-maintenance and prefer to live in pairs or small groups.', 2, 9000.00, 'Birds', '2024-08-26 17:17:23'),
-(17, 'Goldfish', 'Classic freshwater fish with a variety of colors and fin shapes. Goldfish are relatively easy to care for but require a well-filtered tank due to their waste production.', 70, 800.00, 'Fish', '2024-08-26 17:18:19');
+	(10, 'mine', 'Small to medium-sized dogs known for their keen sense of smell and friendly nature. Beagles are energetic and great with families and children.', 5, 50000.00, 'Dog', '2024-08-26 17:12:34'),
+	(11, 'Shih Tzu', 'Small toy dogs with a long, flowing coat and a friendly personality. They are affectionate and good for apartment living.', 1, 20000.00, 'Dog', '2024-08-26 17:13:26'),
+	(12, 'Persian', 'Known for their long, luxurious fur and flat faces. Persians are calm, affectionate, and enjoy a quiet environment. They require regular grooming.', 1, 5000.00, 'Cat', '2024-08-26 17:14:15'),
+	(13, 'British Shorthair', 'Stocky, round-faced cats with a dense, plush coat. They are calm, easygoing, and make excellent companions for families and individuals alike.\r\n', 6, 30000.00, 'Cat', '2024-08-26 17:14:51'),
+	(14, 'Budgerigar', 'Small, colorful parrots known for their playful and social nature. Budgies are easy to care for and can mimic human speech and sounds.', 4, 20000.00, 'Birds', '2024-08-26 17:16:01'),
+	(15, 'Cockatiel', 'Medium-sized parrots with a distinctive crest on their head. They are affectionate, enjoy interaction, and can learn to mimic sounds and speech.', 8, 8000.00, 'Birds', '2024-08-26 17:16:47'),
+	(16, 'Canary', 'Small, songbirds known for their bright colors and melodious singing. Canaries are low-maintenance and prefer to live in pairs or small groups.', 2, 9000.00, 'Birds', '2024-08-26 17:17:23'),
+	(17, 'Goldfish', 'Classic freshwater fish with a variety of colors and fin shapes. Goldfish are relatively easy to care for but require a well-filtered tank due to their waste production.', 70, 800.00, 'Fish', '2024-08-26 17:18:19'),
+	(18, 'German Shepherd', 'Well Behaved Dogs with great pedigrees', 6, 30000.00, 'Dog', '2024-08-26 17:43:12'),
+	(19, 'Parrot', 'Domestic Bird with great value', 2, 5000.00, 'Birds', '2024-08-26 17:44:24');
 
--- --------------------------------------------------------
+-- Dumping structure for table petshop_db.items
+CREATE TABLE IF NOT EXISTS `items` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `quantity` int NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `category_id` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  CONSTRAINT `items_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
---
--- Table structure for table `users`
---
+-- Dumping data for table petshop_db.items: ~0 rows (approximately)
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone_number` varchar(20) NOT NULL,
-  `created_at` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- Dumping structure for table petshop_db.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) CHARACTER SET utf8mb4  NOT NULL,
+  `password_hash` varchar(255) CHARACTER SET utf8mb4  NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4  NOT NULL,
+  `phone_number` varchar(20) CHARACTER SET utf8mb4  NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `remember_token` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 ;
 
---
--- Dumping data for table `users`
---
+-- Dumping data for table petshop_db.users: ~2 rows (approximately)
+INSERT INTO `users` (`id`, `username`, `password_hash`, `email`, `phone_number`, `created_at`, `remember_token`) VALUES
+	(6, 'admin', '$2y$10$nm1t9mM.XqGFKlgxVBBjHOp2pp8Pi90tUHQTg6e8uy.9i8axGVSH6', 'admin@gmail.com', '1234567890', '2024-08-26 04:18:07', NULL);
 
-INSERT INTO `users` (`id`, `username`, `password_hash`, `email`, `phone_number`, `created_at`) VALUES
-(6, 'admin', '$2y$10$nm1t9mM.XqGFKlgxVBBjHOp2pp8Pi90tUHQTg6e8uy.9i8axGVSH6', 'admin@gmail.com', '1234567890', '2024-08-26 04:18:07');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `inventory`
---
-ALTER TABLE `inventory`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `inventory`
---
-ALTER TABLE `inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-COMMIT;
-
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
