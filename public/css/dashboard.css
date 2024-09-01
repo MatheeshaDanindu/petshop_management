@@ -53,9 +53,7 @@ h1 {
     background-color: #DF8F88; /* Dark Gray */
     padding-top: 20px;
     transition: width 0.3s;
-    /* overflow: hidden; */
-    /* display: flex; */
-    /* flex-direction: column; */
+
 }
 .sidebar-content {
     display: flex;
@@ -191,10 +189,7 @@ h1 {
     justify-content: space-between;
     padding: 10px;
 }
-/* .sidebar img {
-    max-width: 50px;
-    max-height: 50px;
-} */
+
 .nav-link {
     display: flex;
     align-items: center;

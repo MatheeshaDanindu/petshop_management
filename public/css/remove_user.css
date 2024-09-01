@@ -1,0 +1,36 @@
+body { 
+    background-image: url('../Images/9007406.png'); /* Ensure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+}
+.container {
+    max-width: 800px;
+    margin-top: 30px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.card {
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    padding: 20px;
+}
+.table td, .table th {
+    vertical-align: middle;
+}
+.alert {
+    display: none;
+    margin-bottom: 20px;
+}

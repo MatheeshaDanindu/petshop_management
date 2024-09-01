@@ -11,65 +11,11 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/register.css">
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            position: relative;
-            background-image: url('Images/9007406.png'); /* Ensure this path is correct */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .container {
-            max-width: 400px;
-            padding: 15px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .btn-primary {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        .btn-secondary {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .alert {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 300px;
-            display: none;
-            z-index: 9999;
-        }
-    </style>
 </head>
 <body>
     <!-- Success or Error Messages -->

@@ -24,45 +24,8 @@ try {
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/remove_user.css">
 
-    <style>
-        body { 
-            background-image: url('Images/9007406.png'); /* Ensure this path is correct */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh; /* Full viewport height */
-            margin: 0;
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-        
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .container {
-            max-width: 800px;
-            margin-top: 30px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .table td, .table th {
-            vertical-align: middle;
-        }
-        .alert {
-            display: none;
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -80,6 +43,15 @@ try {
                 <?php endif; ?>
 
                 <h1>Remove User</h1>
+
+                <form action="../backend/remove_user.php" method="POST">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" name="username" id="username" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Remove User</button>
+                </form>
+
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -105,10 +77,15 @@ try {
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary">Add User</button>
+
+                    <a href="register.php" class="btn btn-primary">
+                        Add User
+                    </a>
+                    
                     <a href="../index.php" class="btn btn-secondary btn-back">
                         <i class="bi bi-arrow-left"></i> Back to Home
                     </a>
+
             </div>
         </div>
     </div>
