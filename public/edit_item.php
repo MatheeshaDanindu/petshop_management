@@ -27,6 +27,16 @@ $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
         <div class="container-fluid mt-3">
             <h2 class="text-center">Edit Inventory Item</h2>
             <form method="POST" action="../backend/edit_item.php">
+                <div class="mb-3">
+                    <label for="category_id" class="form-label">Category</label>
+                    <select class="form-select" id="category_id" name="category_id" required>
+                        <?php foreach ($categories as $category): ?>
+                            <option value="<?= $category['id'] ?>" <?= $category['name'] == $item['category'] ? 'selected' : '' ?>>
+                                <?= $category['name'] ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <input type="hidden" name="id" value="<?= $item['id'] ?>">
                 <div class="mb-3">
                     <label for="name" class="form-label">Item Name</label>
@@ -38,22 +48,13 @@ $categories = $pdo->query("SELECT * FROM categories")->fetchAll();
                 </div>
                 <div class="mb-3">
                     <label for="quantity" class="form-label">Quantity</label>
-                    <input type="number" class="form-control" id="quantity" name="quantity" value="<?= htmlspecialchars($item['quantity']) ?>" required>
+                    <input type="number" class="form-control" id="quantity" name="quantity" value="<?= htmlspecialchars($item['quantity']) ?>" min="1" required>
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" step="0.01" class="form-control" id="price" name="price" value="<?= htmlspecialchars($item['price']) ?>" required>
+                    <input type="number" step="0.01" class="form-control" id="price" name="price" value="<?= htmlspecialchars($item['price']) ?>" min="0.01" required>
                 </div>
-                <div class="mb-3">
-                    <label for="category_id" class="form-label">Category</label>
-                    <select class="form-select" id="category_id" name="category_id" required>
-                        <?php foreach ($categories as $category): ?>
-                            <option value="<?= $category['id'] ?>" <?= $category['name'] == $item['category'] ? 'selected' : '' ?>>
-                                <?= $category['name'] ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
+                
                 <button type="submit" class="btn btn-primary">Update Item</button>
             </form>
         </div>

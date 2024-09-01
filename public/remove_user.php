@@ -1,6 +1,15 @@
 <?php
-require '../auth.php';
+// require '../auth.php';
 require '../config.php';
+
+// Fetch all users from the database
+try {
+    $stmt = $pdo->query("SELECT username, email, phone_number FROM users");
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Error fetching users: " . $e->getMessage());
+    $users = [];
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,45 +24,8 @@ require '../config.php';
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<<<<<<< Updated upstream
-
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .container {
-            max-width: 500px;
-            margin-top: 30px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        .card-body {
-            padding: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .btn-primary {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 25px;
-        }
-        .alert {
-            display: none;
-            margin-bottom: 20px;
-        }
-    </style>
-=======
     <link rel="stylesheet" href="css/remove_user.css">
->>>>>>> Stashed changes
+
 </head>
 <body>
     <div class="container">
@@ -71,7 +43,7 @@ require '../config.php';
                 <?php endif; ?>
 
                 <h1>Remove User</h1>
-<<<<<<< Updated upstream
+
                 <form action="../backend/remove_user.php" method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
@@ -79,7 +51,7 @@ require '../config.php';
                     </div>
                     <button type="submit" class="btn btn-primary">Remove User</button>
                 </form>
-=======
+
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -105,6 +77,7 @@ require '../config.php';
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+
                     <a href="register.php" class="btn btn-primary">
                         Add User
                     </a>
@@ -112,12 +85,28 @@ require '../config.php';
                     <a href="../index.php" class="btn btn-secondary btn-back">
                         <i class="bi bi-arrow-left"></i> Back to Home
                     </a>
->>>>>>> Stashed changes
+
             </div>
         </div>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function confirmRemove() {
+            return confirm('Are you sure you want to remove this user?');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const alert = document.querySelector('.alert');
+            if (alert) {
+                alert.style.display = 'block';
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                }, 5000); // Hide after 5 seconds
+            }
+        });
+    </script>
 </body>
 </html>

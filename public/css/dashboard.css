@@ -53,6 +53,7 @@ h1 {
     background-color: #DF8F88; /* Dark Gray */
     padding-top: 20px;
     transition: width 0.3s;
+
 }
 .sidebar-content {
     display: flex;

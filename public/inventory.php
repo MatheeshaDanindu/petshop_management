@@ -57,8 +57,8 @@ require '../backend/inventory.php'; // Include the backend logic
                             <td><?= htmlspecialchars($item['category']) ?></td>
                             <td><?= htmlspecialchars($item['created_at']) ?></td>
                             <td>
-                                <a href="edit_item.php?id=<?= $item['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="../delete_item.php?id=<?= $item['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                <a href="edit_item.php?id=<?= $item['id'] ?>" class="btn btn-warning btn-sm" style="width: 80px; text-align: center;">Edit</a>
+                                <a href="../delete_item.php?id=<?= $item['id'] ?>" class="btn btn-danger btn-sm" style="width: 80px; text-align: center;" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

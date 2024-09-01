@@ -37,11 +37,18 @@ $items = $stmt->fetchAll();
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="public/register.php">Register</a>
+                    <!-- Dropdown for User Management -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="#" id="userManagementDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            User Management
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="userManagementDropdown">
+                            <li><a class="dropdown-item" href="public/register.php">Add User</a></li>
+                            <li><a class="dropdown-item" href="public/remove_user.php">Remove User</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link fw-bold" href="logout.php">Logout</a>
                     </li>
                 </ul>
             </div>

@@ -4,70 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Pet Shop Management</title>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!--<style>
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            background-color: #f8f9fa;
-            padding: 1rem;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
 
-        .sidebar a {
-            font-weight: 500;
-        }
 
-        .sidebar .nav-link.active {
-            background-color: #007bff;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-        }
-    </style>-->
 </head>
 <body>
-    <div class="sidebar d-flex flex-column flex-shrink-0 bg-light">
-        <a href="../index.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <img src="images/Pet_Shop_Logo.png" alt="Pet Shop Logo" width="220" height="90" class="d-inline-block align-text-top">
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
+    <div class="sidebar">
+        <div class="sidebar-content">
+            <img src="images/Pet_Shop_Logo.png" alt="Pet Shop Logo" class="img-fluid">
+            <button class="toggle-btn btn btn-link" onclick="toggleSidebar()">
+                <i id="toggle-icon" class="bi bi-chevron-left"></i>
+            </button>
+        </div>
+        <ul class="nav flex-column">
             <li class="nav-item">
-                <a href="inventory.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'inventory.php' ? 'active' : ''; ?>">
-                    Inventory
-                </a>
+                <a href="../index.php" class="nav-link"><i class="bi bi-house-door"></i><span>Home</span></a>
             </li>
-            <li>
-                <a href="report.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'report.php' ? 'active' : ''; ?>">
-                    Reports
-                </a>
+            <li class="nav-item">
+                <a href="inventory.php" class="nav-link"><i class="bi bi-box-seam"></i><span>Inventory</span></a>
             </li>
-            <!--
-            <li>
-                <a href="export_csv.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'export_csv.php' ? 'active' : ''; ?>">
-                    Export CSV
-                </a>
+            <li class="nav-item">
+                <a href="add_item.php" class="nav-link"><i class="bi bi-plus-circle"></i><span>Add Item</span></a>
             </li>
-            -->
-            <li>
-                <a href="../logout.php" class="nav-link <?php echo basename($_SERVER['PHP_SELF']) == 'logout.php' ? 'active' : ''; ?>">
-                    Logout
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="userManagementDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-gear"></i><span>User Management</span>
                 </a>
+                <ul class="dropdown-menu" aria-labelledby="userManagementDropdown">
+                    <li><a href="register.php" class="dropdown-item">Add User</a></li>
+                    <li><a href="remove_user.php" class="dropdown-item">Remove User</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="report.php" class="nav-link"><i class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="../logout.php" class="nav-link"><i class="bi bi-box-arrow-right"></i><span>Logout</span></a>
             </li>
         </ul>
     </div>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Sidebar Toggle Script -->
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('collapsed');
+
+            var toggleIcon = document.getElementById('toggle-icon');
+            if (sidebar.classList.contains('collapsed')) {
+                toggleIcon.classList.remove('bi-chevron-left');
+                toggleIcon.classList.add('bi-chevron-right');
+            } else {
+                toggleIcon.classList.remove('bi-chevron-right');
+                toggleIcon.classList.add('bi-chevron-left');
+            }
+        }
+    </script>
 </body>
 </html>
