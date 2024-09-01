@@ -15,6 +15,7 @@ require '../config.php';
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<<<<<<< Updated upstream
 
     <style>
         body {
@@ -50,6 +51,9 @@ require '../config.php';
             margin-bottom: 20px;
         }
     </style>
+=======
+    <link rel="stylesheet" href="css/remove_user.css">
+>>>>>>> Stashed changes
 </head>
 <body>
     <div class="container">
@@ -67,6 +71,7 @@ require '../config.php';
                 <?php endif; ?>
 
                 <h1>Remove User</h1>
+<<<<<<< Updated upstream
                 <form action="../backend/remove_user.php" method="POST">
                     <div class="form-group">
                         <label for="username">Username</label>
@@ -74,6 +79,40 @@ require '../config.php';
                     </div>
                     <button type="submit" class="btn btn-primary">Remove User</button>
                 </form>
+=======
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($users as $user): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($user['username']); ?></td>
+                                <td><?php echo htmlspecialchars($user['email']); ?></td>
+                                <td><?php echo htmlspecialchars($user['phone_number']); ?></td>
+                                <td>
+                                    <form action="../backend/remove_user.php" method="POST" style="display:inline;" onsubmit="return confirmRemove();">
+                                        <input type="hidden" name="username" value="<?php echo htmlspecialchars($user['username']); ?>">
+                                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                    <a href="register.php" class="btn btn-primary">
+                        Add User
+                    </a>
+                    
+                    <a href="../index.php" class="btn btn-secondary btn-back">
+                        <i class="bi bi-arrow-left"></i> Back to Home
+                    </a>
+>>>>>>> Stashed changes
             </div>
         </div>
     </div>
