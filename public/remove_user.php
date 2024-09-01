@@ -44,13 +44,7 @@ try {
 
                 <h1>Remove User</h1>
 
-                <form action="../backend/remove_user.php" method="POST">
-                    <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Remove User</button>
-                </form>
+                
 
                 <table class="table table-bordered">
                     <thead>
